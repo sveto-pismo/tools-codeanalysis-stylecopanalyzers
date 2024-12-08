@@ -1,0 +1,4 @@
+﻿branches:
+  main:
+    mode: ContinuousDeployment
+    tag: pre

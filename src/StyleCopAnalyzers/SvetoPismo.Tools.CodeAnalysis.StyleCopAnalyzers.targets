@@ -1,0 +1,12 @@
+﻿<Project>
+  <ItemGroup>
+    <EditorConfigFiles Include="$([MSBuild]::NormalizePath('$(MSBuildThisFileDirectory)\..\SvetoPismo.Tools.CodeAnalysis.StyleCopAnalyzers.globalconfig'))">
+      <Link>SvetoPismo.Tools.CodeAnalysis.StyleCopAnalyzers.globalconfig</Link>
+      <Visible>false</Visible>
+    </EditorConfigFiles>
+    <AdditionalFiles Include="$([MSBuild]::NormalizePath('$(MSBuildThisFileDirectory)\..\stylecop.json'))">
+      <Link>stylecop.json</Link>
+      <Visible>false</Visible>
+    </AdditionalFiles>
+  </ItemGroup>
+</Project>

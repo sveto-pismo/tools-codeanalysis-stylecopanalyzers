@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <IsPackable>true</IsPackable>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <PackageDescription>StyleCop Analyzer Defaults.</PackageDescription>
+    <PackageTags>analyzers;stylecop;defaults</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers.Unstable">
+      <PrivateAssets>runtime; build; native; contentfiles</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <!-- TFM -->
+    <None Pack="true" PackagePath="build" Include="SvetoPismo.Tools.CodeAnalysis.StyleCopAnalyzers.props" />
+    <None Pack="true" PackagePath="build" Include="SvetoPismo.Tools.CodeAnalysis.StyleCopAnalyzers.targets" />
+    <!-- TFMs -->
+    <None Pack="true" PackagePath="buildMultiTargeting" Include="SvetoPismo.Tools.CodeAnalysis.StyleCopAnalyzers.props" />
+    <None Pack="true" PackagePath="buildMultiTargeting" Include="SvetoPismo.Tools.CodeAnalysis.StyleCopAnalyzers.targets" />
+    <!-- Transitive -->
+    <None Pack="true" PackagePath="buildTransitive" Include="SvetoPismo.Tools.CodeAnalysis.StyleCopAnalyzers.props" />
+    <None Pack="true" PackagePath="buildTransitive" Include="SvetoPismo.Tools.CodeAnalysis.StyleCopAnalyzers.targets" />
+    <!-- Assets -->
+    <None Pack="true" PackagePath="" Include="SvetoPismo.Tools.CodeAnalysis.StyleCopAnalyzers.globalconfig" />
+    <None Pack="true" PackagePath="" Include="stylecop.json" />
+    <!-- README -->
+    <None Pack="true" PackagePath="" Include="README.md" />
+  </ItemGroup>
+</Project>

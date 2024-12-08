@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{38A862FE-CB8C-4C69-A643-49AE1DF97C11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvetoPismo.Tools.CodeAnalysis.StyleCopAnalyzers", "src\StyleCopAnalyzers\SvetoPismo.Tools.CodeAnalysis.StyleCopAnalyzers.csproj", "{B043E4FD-1F55-4C75-87B9-BC9B1A2BBE36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B043E4FD-1F55-4C75-87B9-BC9B1A2BBE36} = {38A862FE-CB8C-4C69-A643-49AE1DF97C11}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B043E4FD-1F55-4C75-87B9-BC9B1A2BBE36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B043E4FD-1F55-4C75-87B9-BC9B1A2BBE36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B043E4FD-1F55-4C75-87B9-BC9B1A2BBE36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B043E4FD-1F55-4C75-87B9-BC9B1A2BBE36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

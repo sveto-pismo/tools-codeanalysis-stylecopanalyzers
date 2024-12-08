@@ -1,0 +1,59 @@
+﻿name: Release
+
+on:
+  pull_request: {}
+  release:
+    types:
+      - published
+  workflow_dispatch: {}
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  DOTNET_NOLOGO: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET Core SDK 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            9.0.x
+
+      - name: Restore .NET Packages
+        run: dotnet restore
+
+      - name: Build .NET Solution
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Pack .NET Solution
+        run: dotnet pack --configuration Release --no-build --output pack/
+        if: ${{ github.event_name == 'release'  && github.ref_type == 'tag' || github.event.release.tag_name }}
+
+      - name: Publish .NET Solution to GitHub Packages
+        continue-on-error: true
+        run: dotnet nuget push pack/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+        if: ${{ github.event_name == 'release'  && github.ref_type == 'tag' || github.event.release.tag_name }}
+
+      - name: Upload Release Assets
+        continue-on-error: true
+        if: ${{ github.event_name == 'release'  && github.ref_type == 'tag' || github.event.release.tag_name }}
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            pack/*.nupkg
+            pack/*.snupkg
+
+      - name: Publish .NET Solution to NuGet.org
+        continue-on-error: true
+        run: dotnet nuget push pack/*.nupkg --api-key ${{ secrets.NUGET_ORG_KEY }} --source nuget
+        if: ${{ github.event_name == 'release'  && github.ref_type == 'tag' || github.event.release.tag_name }}
