@@ -1,0 +1,6 @@
+﻿<Project>
+  <PropertyGroup>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <CodeAnalysisRuleSetLocation Condition="'$(NuGetPackageRoot)' == ''">$(NuGetPackageRoot)</CodeAnalysisRuleSetLocation>
+  </PropertyGroup>
+</Project>
