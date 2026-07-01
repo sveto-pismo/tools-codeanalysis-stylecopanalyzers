@@ -47,7 +47,7 @@ jobs:
       - name: Upload Release Assets
         continue-on-error: true
         if: ${{ github.event_name == 'release'  && github.ref_type == 'tag' || github.event.release.tag_name }}
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: |
             pack/*.nupkg
